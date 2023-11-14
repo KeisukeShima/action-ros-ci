@@ -11338,6 +11338,7 @@ function runTests(colconCommandPrefix, options, testPackageSelection, colconExtr
             `colcon`,
             `test`,
             `--event-handlers=console_direct+`,
+            `--executor sequential`,
             ...testPackageSelection,
             ...colconExtraArgs,
         ];

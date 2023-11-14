@@ -240,6 +240,7 @@ async function runTests(
 		`colcon`,
 		`test`,
 		`--event-handlers=console_direct+`,
+		`--executor sequential`,
 		...testPackageSelection,
 		...colconExtraArgs,
 	];
