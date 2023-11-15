@@ -275,7 +275,10 @@ async function runTests(
 		);
 		await execShellCommand(
 			[...colconCommandPrefix, ...colconTestResultVerboseCmd],
-			options,
+			{
+				...options,
+				ignoreReturnCode: true,
+			},
 			false
 		);
 	}

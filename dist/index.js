@@ -11346,7 +11346,7 @@ function runTests(colconCommandPrefix, options, testPackageSelection, colconExtr
             colconTestCmd = [...colconTestCmd, `--merge-install`];
         }
         if (doTests) {
-            yield execShellCommand([...colconCommandPrefix, ...colconTestCmd], options, false);
+            yield execShellCommand([...colconCommandPrefix, ...colconTestCmd], Object.assign(Object.assign({}, options), { ignoreReturnCode: true }), false);
             /**
              * Display all test results first and ignore the return code. Then, display only failing
              * tests with their output and let non-zero return code fail the job.
@@ -11355,7 +11355,7 @@ function runTests(colconCommandPrefix, options, testPackageSelection, colconExtr
             const colconTestResultAllCmd = [...colconTestResultCmd, "--all"];
             const colconTestResultVerboseCmd = [...colconTestResultCmd, "--verbose"];
             yield execShellCommand([...colconCommandPrefix, ...colconTestResultAllCmd], Object.assign(Object.assign({}, options), { ignoreReturnCode: true }), false);
-            yield execShellCommand([...colconCommandPrefix, ...colconTestResultVerboseCmd], options, false);
+            yield execShellCommand([...colconCommandPrefix, ...colconTestResultVerboseCmd], Object.assign(Object.assign({}, options), { ignoreReturnCode: true }), false);
         }
         if (doLcovResult) {
             // ignoreReturnCode, check comment above in --initial
