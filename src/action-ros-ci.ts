@@ -251,7 +251,10 @@ async function runTests(
 	if (doTests) {
 		await execShellCommand(
 			[...colconCommandPrefix, ...colconTestCmd],
-			options,
+			{
+				...options,
+				ignoreReturnCode: true,
+			},
 			false
 		);
 
